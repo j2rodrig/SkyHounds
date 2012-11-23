@@ -78,10 +78,11 @@
   <ItemGroup>
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="Avatar.cpp" />
-    <ClCompile Include="AvatarAgency.cpp" />
     <ClCompile Include="errors.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MemoryPool.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Scenario.cpp" />
     <ClCompile Include="Script.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -89,22 +90,22 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="local_options.txt" />
     <None Include="options.txt" />
+    <None Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agency.h" />
     <ClInclude Include="AI.h" />
     <ClInclude Include="Avatar.h" />
-    <ClInclude Include="AvatarAgency.h" />
-    <ClInclude Include="Script.h" />
     <ClInclude Include="Control.h" />
-    <ClInclude Include="Creep.h" />
     <ClInclude Include="errors.h" />
     <ClInclude Include="libraries.h" />
-    <ClInclude Include="Hero.h" />
     <ClInclude Include="MemoryBinding.h" />
     <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="porting.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Scenario.h" />
+    <ClInclude Include="Script.h" />
+    <ClInclude Include="StateAvatarScenario.h" />
     <ClInclude Include="util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

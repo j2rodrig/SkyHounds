@@ -1,0 +1,15 @@
+Import token images, animation: ANIM_NAMEx.png where x is frame number
+Define where token image "front" is.
+Token movement, rotation
+
+Map editor
+Assignment of tokens to initial positions
+Editing paths
+
+Parser for scripts:
+Define language syntax (keep it simple)
+
+Networking:
+Waiting for others to join game: selection of teams
+Synchronization of ongoing map state
+Synchronization of agent state

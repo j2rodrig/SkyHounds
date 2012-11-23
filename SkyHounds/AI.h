@@ -1,13 +1,17 @@
+/**
+Avatar with artificial intelligence.
+*/
+
 #ifndef AI_H
 #define AI_H
 
-#include "AvatarAgency.h"
+#include "Avatar.h"
 
-class AI : public AvatarAgency {
+class AI : public Avatar {
 public:
-	AI (Avatar * _avatar);
+	AI (Script * _script, Scenario * _scenario);
 
-	void SimTick ();
+	virtual void SimTick ();
 
 };
 

@@ -4,11 +4,14 @@
 
 static std::set<std::string> all_messages;
 
-std::string Warning (void * object, const char * file_name, int line,
+std::string Warning (std::string object_type, const char * file_name, int line,
 		const std::string & message)
 {
-	std::string object_type =
-		object ? std::string(typeid(object).name()) + " " : "";
+	// Check object type name. If NULL was passed to warning macro, object_type will be "int".
+	if (object_type == "int")
+		object_type = "";
+	else
+		object_type += " ";
 	
 	std::stringstream s;
 	s << message << " [" << object_type << file_name << " " << line << "]\n";
@@ -30,7 +33,7 @@ std::string Warning (void * object, const char * file_name, int line,
 	return full_message;
 }
 
-std::string Warning (void * object, const char * file_name, int line,
+std::string Warning (std::string object_type, const char * file_name, int line,
 		const char * format, ...)
 {
 	char message[1000];
@@ -38,5 +41,5 @@ std::string Warning (void * object, const char * file_name, int line,
 	va_start (arguments, format);
 	vsnprintf (message, 1000, format, arguments);
 	va_end (arguments);
-	return Warning (object, file_name, line, std::string(message));
+	return Warning (object_type, file_name, line, std::string(message));
 }

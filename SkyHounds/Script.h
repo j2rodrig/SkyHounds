@@ -20,7 +20,7 @@ public:
 			if (definitions[word] != def)
 				warning (this,
 					"Definition of '%s' in script file %s if being changed to %s",
-					word, def, file_name);
+					word.c_str(), def.c_str(), file_name.c_str());
 		}
 		definitions[word] = def;
 	}
@@ -28,7 +28,8 @@ public:
 	// Get the definition of a word
 	std::string text (std::string word) {
 		if (definitions.count(word) == 0) {
-			warning (this, "Word '%s' not defined in script file %s", word, file_name);
+			warning (this, "Word '%s' not defined in script file %s",
+				word.c_str(), file_name.c_str());
 			breakpoint ();
 			return "---";
 		}
@@ -48,7 +49,7 @@ public:
 			else {
 				warning (this,
 					"Definition '%s = %s' in script %s does not yield a valid integer",
-					word, def, file_name);
+					word.c_str(), def.c_str(), file_name.c_str());
 				breakpoint ();
 				break;
 			}

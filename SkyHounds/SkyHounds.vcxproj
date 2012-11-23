@@ -58,7 +58,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <Version>0.01</Version>
       <AdditionalLibraryDirectories>$(NVTOOLSEXT_PATH)\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>allegro-5.0.7-monolith-md-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>allegro-5.0.7-monolith-md-debug.lib;allegro_image-5.0.7-md-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -72,19 +72,39 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>allegro-5.0.7-monolith-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>allegro-5.0.7-monolith-md.lib;allegro_image-5.0.7-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AI.cpp" />
+    <ClCompile Include="Avatar.cpp" />
+    <ClCompile Include="AvatarAgency.cpp" />
+    <ClCompile Include="errors.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MemoryPool.cpp" />
+    <ClCompile Include="Script.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="local_options.txt" />
+    <None Include="options.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Agency.h" />
+    <ClInclude Include="AI.h" />
+    <ClInclude Include="Avatar.h" />
+    <ClInclude Include="AvatarAgency.h" />
+    <ClInclude Include="Script.h" />
     <ClInclude Include="Control.h" />
+    <ClInclude Include="Creep.h" />
+    <ClInclude Include="errors.h" />
+    <ClInclude Include="libraries.h" />
+    <ClInclude Include="Hero.h" />
+    <ClInclude Include="MemoryBinding.h" />
+    <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="porting.h" />
     <ClInclude Include="Scenario.h" />
+    <ClInclude Include="util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

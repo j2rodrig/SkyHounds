@@ -1,3 +1,10 @@
+*.log
+misc_code/
+*.png
+*.jpg
+*.bmp
+SkyHounds/local_options.txt
+
 #################
 ## Eclipse
 #################

@@ -85,6 +85,7 @@
     <ClCompile Include="Script.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\README.txt" />
     <None Include="ClassDiagram1.cd" />
     <None Include="local_options.txt" />
     <None Include="options.txt" />

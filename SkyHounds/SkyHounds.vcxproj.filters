@@ -41,6 +41,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="local_options.txt" />
     <None Include="options.txt" />
+    <None Include="..\README.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scenario.h">

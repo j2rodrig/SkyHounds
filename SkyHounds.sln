@@ -2,6 +2,16 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SkyHounds", "SkyHounds\SkyHounds.vcxproj", "{F06D96E7-27A4-49F9-8506-43DB787FBC58}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2099B873-7A8E-472F-ADFD-33999013859E} = {2099B873-7A8E-472F-ADFD-33999013859E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SkyHoundsDocs", "SkyHoundsDocs\SkyHoundsDocs.vcxproj", "{490B5B2F-E0B9-4008-8DF7-7E5FDEF60851}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2099B873-7A8E-472F-ADFD-33999013859E} = {2099B873-7A8E-472F-ADFD-33999013859E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Parser", "Parser\Parser.vcxproj", "{2099B873-7A8E-472F-ADFD-33999013859E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +23,14 @@ Global
 		{F06D96E7-27A4-49F9-8506-43DB787FBC58}.Debug|Win32.Build.0 = Debug|Win32
 		{F06D96E7-27A4-49F9-8506-43DB787FBC58}.Release|Win32.ActiveCfg = Release|Win32
 		{F06D96E7-27A4-49F9-8506-43DB787FBC58}.Release|Win32.Build.0 = Release|Win32
+		{490B5B2F-E0B9-4008-8DF7-7E5FDEF60851}.Debug|Win32.ActiveCfg = Debug|Win32
+		{490B5B2F-E0B9-4008-8DF7-7E5FDEF60851}.Debug|Win32.Build.0 = Debug|Win32
+		{490B5B2F-E0B9-4008-8DF7-7E5FDEF60851}.Release|Win32.ActiveCfg = Release|Win32
+		{490B5B2F-E0B9-4008-8DF7-7E5FDEF60851}.Release|Win32.Build.0 = Release|Win32
+		{2099B873-7A8E-472F-ADFD-33999013859E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2099B873-7A8E-472F-ADFD-33999013859E}.Debug|Win32.Build.0 = Debug|Win32
+		{2099B873-7A8E-472F-ADFD-33999013859E}.Release|Win32.ActiveCfg = Release|Win32
+		{2099B873-7A8E-472F-ADFD-33999013859E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

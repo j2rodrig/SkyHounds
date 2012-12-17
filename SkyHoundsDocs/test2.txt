@@ -1,0 +1,7 @@
+excerpt ->
+--[italics]An Excerpt
+\<<\
+	--- I am Ultimus\prime\.
+	--- Ultimus Prime?
+	--- Ultimus'.
+	\>>\

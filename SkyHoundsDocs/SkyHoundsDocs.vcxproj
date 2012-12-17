@@ -75,6 +75,10 @@
   <ItemGroup>
     <ClCompile Include="docs_gen.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="test1.txt" />
+    <None Include="test2.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

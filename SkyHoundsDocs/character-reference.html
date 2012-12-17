@@ -3,430 +3,84 @@
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <style type='text/css'>
+body { font-family: "Bookman Old Style", "Serifa BT", "URW Bookman L", "itc bookman", Times, serif; }
 th { padding-right: 4px; padding-left: 4px; text-align: center; }
 td { padding-right: 4px; padding-left: 4px; text-align: center; }
 </style>
 <title>Character Set Reference</title>
 </head>
 <body>
-<h2>Character Literals</h2>
+<h1>Lexical Conventions for an International Programming Language</h1>The purpose of this effort is to create a coherent and easily-understood set of lexical conventions for programming in a Unicode-aware environment.
+A programming language is language that must be interpretable by both human and machine.
+Ideally, a programming language will adhere to dominant natural-language conventions to the fullest extent reasonable while retaining the ability to expresses necessary concepts and structure unambiguously.
+
 <p>
-
-</p>
-
-<h2>Structural Formatting</h2>
-<table rules='rows'>
-<tr><th>Character</th><th>Pairing</th></tr>
-<tr><td>(</td><td>)</td></tr>
-<tr><td>[</td><td>]</td></tr>
-<tr><td>{</td><td>}</td></tr>
+<table>
+<tr><th>Basic Convention</th><th>Explanation</th></tr>
+<tr><td>( Group of Things Type 1 )</td><td></td></tr>
+<tr><td>{ Group of Things Type 2 }</td><td></td></tr>
+<tr><td>[Comment for the Machine]</td><td>or, Annotation. Sometimes the Machine needs help interpreting the meaning of something.</td></tr>
+<tr><td>-- Comment for Humans</td><td>Humans need help with interpreting meanings too. (Or just disabling sections of code.)</td></tr>
+<tr><td>--- Documentation for Humans ---</td><td>Reference Material!</td></tr>
+<tr><td>A/B</td><td>B below A</td></tr>
+<tr><td>A\B</td><td>B above A</td></tr>
+<tr><td>A-B</td><td>A and B together constitute a single thing</td></tr>
+<tr><td>\code\</td><td>Special Character Code</td></tr>
+<tr><td>“Quoted Literal”<br />
+„Quoted Literal”<br />
+„Quoted Literal“<br />
+« Quoted Literal »<br />
+‘Quoted Literal’<br />
+「Quoted Literal」<br />
+『Quoted Literal』<br />
+</td><td>Literal Quotation, nestable marks</td></tr>
+<tr><td>"Quoted Literal"</td><td>Literal Quotation, legacy marks</td></tr>
 </table>
 
-<h3>Structural Rules</h3>
 <p>
-Structural elements must be paired correctly, unless inside quotes.</p>
+<h3>Character Equivalents</h3>
+<h3>Letters</h3>
+Letters are characters associated with a specific natural language.
 
-<h2>Quotes</h2>
-<table rules='rows'>
-<tr><th>Character</th><th>Pairing</th><th>Ascii 1</th><th>Ascii 2</th></tr>
-<tr><td>"</td><td>"</td><td>"<br/></td><td>"<br/></td></tr>
-<tr><td>«</td><td>»</td><td>&lt;&lt;<br/></td><td>&gt;&gt;<br/></td></tr>
-<tr><td>‘</td><td>’</td><td>\lsquo\<br/>[`]<br/></td><td>\rsquo\<br/>[']<br/></td></tr>
-<tr><td>‚</td><td>’</td><td>\sbquo\<br/>[,]<br/></td><td>\rsquo\<br/>[']<br/></td></tr>
-<tr><td>‚</td><td>‘</td><td>\sbquo\<br/>[,]<br/></td><td>\lsquo\<br/>[`]<br/></td></tr>
-<tr><td>“</td><td>”</td><td>\ldquo\<br/>[``]<br/></td><td>\rdquo\<br/>['']<br/></td></tr>
-<tr><td>„</td><td>”</td><td>\bdquo\<br/>[,,]<br/></td><td>\rdquo\<br/>['']<br/></td></tr>
-<tr><td>„</td><td>“</td><td>\bdquo\<br/>[,,]<br/></td><td>\ldquo\<br/>[``]<br/></td></tr>
-</table>
-
-<h3>Handling of Quotes</h3>
+<h3>Quotes</h3>
+Quotation marks delimit quoted literals.
+<ul>
+<li>Quotations can be nested.</li><li>Outermost quotation marks can be localized.</li></ul>
 <p>
-To help prevent visual confusion between the single bottom quote (‚) and the comma (,), outermost quotations may not begin with the single bottom quote.
-To help disambiguate the different uses of the ASCII single quote, outermost quotations may not begin with the ASCII single quote, and no attempt is made to match pairs of ASCII single quotes.
-Finnish and Swedish quotation styles (”…” and ’…’ and »…») are not supported, nor are reversed quotation styles (»…«).
-However, such users may substitute ASCII double quote marks for outermost quotations, and prevent pairing of inner quote marks by using character literals. (E.g., "…[’]…[’]…".)
-French-style thin spaces next to quote marks (e.g., « … » ) are understood as literal spaces. Attempting to distinguish between literal spaces and spaces used for mere presentational formatting within strings may create too many ambiguities.
-Single-angle quote marks are not supported, although they may be embedded in quotations and comments.</p>
-
+The quote table below lists recognized quotation marks, whether the marks can be the outermost marks in a quote literal, and whether the marks may appear unescaped inside a quote literal.<p>
+<table>
+<tr><th colspan=2>Quote marks</th><th colspan=2>Equivalent</th><th>May be outermost</th><th>Unescaped within quote</th></tr>
+<tr><td>«</td><td>»</td><td></td><td></td><td>Yes</td><td>Yes</td></tr>
+<tr><td>‘</td><td>’</td><td></td><td></td><td>Yes</td><td>Yes</td></tr>
+<tr><td>‚</td><td>‘</td><td></td><td></td><td>No</td><td>Yes</td></tr>
+<tr><td>‚</td><td>’</td><td></td><td></td><td>No</td><td>Yes</td></tr>
+<tr><td>“</td><td>”</td><td></td><td></td><td>Yes</td><td>Yes</td></tr>
+<tr><td>„</td><td>”</td><td></td><td></td><td>Yes</td><td>Yes</td></tr>
+<tr><td>„</td><td>“</td><td></td><td></td><td>Yes</td><td>Yes</td></tr>
+<tr><td>‹</td><td>›</td><td></td><td></td><td>No</td><td>Yes</td></tr>
+<tr><td>〈</td><td>〉</td><td>‹</td><td>›</td><td>No</td><td>Yes</td></tr>
+<tr><td>《</td><td>》</td><td>«</td><td>»</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>「</td><td>」</td><td></td><td></td><td>Yes</td><td>Yes</td></tr>
+<tr><td>『</td><td>』</td><td></td><td></td><td>Yes</td><td>Yes</td></tr>
+<tr><td>"</td><td>"</td><td></td><td></td><td>Yes</td><td>No</td></tr>
+</table><p>
+There are certain limitations of the usage of various quote characters.
+The ASCII apostrophe (') is never interpreted as a quote delimiter, due to its already overloaded usage as an apostrophe, a prime mark, and an acute accent.
+The ASCII apostrophe may appear within a quote, but no structural pairing rules are applied to it.
+The ASCII double-quote mark (") may not appear unescaped within a quote literal. The single-bottom quote mark (‚) is not permitted to begin a quote literal due to its visual similarity to the comma (,). It may, however, be used to form nested sub-quotes.
+The single-angle quotation marks ( ‹ ... › ) are also not permitted to be outermost quote marks, although they may form nested sub-quotes.
+Outside of quotations, these marks are reserved for programming-language-specific use.
+(One use is to provide a third type of grouping in addition to parentheses and braces,  and another is for XML-like markup tags.)
+Finnish and Swedish unidirectional quotation styles (” ... ”, ’ ... ’, and » ... ») are not supported, nor are reversed quotation styles (» ... «).
+These styles may be present within a quoted literal, provided that the quote marks are escaped, and also that the outermost quotation marks use a pairing from the table above.
+French-style thin spaces next to quote marks ( « ... » ) will be interpreted literally, not as presentational formatting of the source code.
+Editors may allow for spaces to be inserted automatically around quote marks to improve visual presentation, but (at least for outermost quote marks) these spaces should never be literally present in the source code.
 <p>
-Quotes, like other structural elements, may span multiple lines.</p>
-
-<h2>Comments</h2>
-<p>
-Outside of a quote, a horizontal bar (―) indicates the start of a comment.
-</p>
-
-<h2>Character List</h2>
-<table rules='rows'>
-<tr><th>Character</th><th>Ascii-Equivalent</th><th>Utf8-Equivalent</th><th>Classification</th><th>Human Language</th></tr>
-<tr><td>!</td><td>!<br/></td><td>!</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>"</td><td>"<br/></td><td>"</td><td style='text-align:left'>QUOTE</td><td>latin</td></tr>
-<tr><td>#</td><td>#<br/></td><td>#</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>$</td><td>$<br/></td><td>$</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>%</td><td>%<br/></td><td>%</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>&amp;</td><td>&amp;<br/></td><td>&amp;</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>'</td><td>'<br/></td><td>'</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>(</td><td>(<br/></td><td>(</td><td style='text-align:left'>STRUCTURAL</td><td>latin</td></tr>
-<tr><td>)</td><td>)<br/></td><td>)</td><td style='text-align:left'>STRUCTURAL</td><td>latin</td></tr>
-<tr><td>*</td><td>*<br/></td><td>*</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>+</td><td>+<br/></td><td>+</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>,</td><td>,<br/></td><td>,</td><td style='text-align:left'>PUNCTUATION</td><td>latin</td></tr>
-<tr><td>-</td><td>-<br/></td><td>-</td><td style='text-align:left'>SPECIAL</td><td>latin</td></tr>
-<tr><td>.</td><td>.<br/></td><td>.</td><td style='text-align:left'>PUNCTUATION</td><td>latin</td></tr>
-<tr><td>/</td><td>/<br/></td><td>/</td><td style='text-align:left'>SPECIAL</td><td>latin</td></tr>
-<tr><td>0</td><td>0<br/></td><td>0</td><td style='text-align:left'>NUMBER</td><td>latin</td></tr>
-<tr><td>1</td><td>1<br/></td><td>1</td><td style='text-align:left'>NUMBER</td><td>latin</td></tr>
-<tr><td>2</td><td>2<br/></td><td>2</td><td style='text-align:left'>NUMBER</td><td>latin</td></tr>
-<tr><td>3</td><td>3<br/></td><td>3</td><td style='text-align:left'>NUMBER</td><td>latin</td></tr>
-<tr><td>4</td><td>4<br/></td><td>4</td><td style='text-align:left'>NUMBER</td><td>latin</td></tr>
-<tr><td>5</td><td>5<br/></td><td>5</td><td style='text-align:left'>NUMBER</td><td>latin</td></tr>
-<tr><td>6</td><td>6<br/></td><td>6</td><td style='text-align:left'>NUMBER</td><td>latin</td></tr>
-<tr><td>7</td><td>7<br/></td><td>7</td><td style='text-align:left'>NUMBER</td><td>latin</td></tr>
-<tr><td>8</td><td>8<br/></td><td>8</td><td style='text-align:left'>NUMBER</td><td>latin</td></tr>
-<tr><td>9</td><td>9<br/></td><td>9</td><td style='text-align:left'>NUMBER</td><td>latin</td></tr>
-<tr><td>:</td><td>:<br/></td><td>:</td><td style='text-align:left'>PUNCTUATION</td><td>latin</td></tr>
-<tr><td>;</td><td>;<br/></td><td>;</td><td style='text-align:left'>PUNCTUATION</td><td>latin</td></tr>
-<tr><td>&lt;</td><td>&lt;<br/></td><td>&lt;</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>=</td><td>=<br/></td><td>=</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>&gt;</td><td>&gt;<br/></td><td>&gt;</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>?</td><td>?<br/></td><td>?</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>@</td><td>@<br/></td><td>@</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>[</td><td>[<br/></td><td>[</td><td style='text-align:left'>STRUCTURAL</td><td>latin</td></tr>
-<tr><td>\</td><td>\<br/></td><td>\</td><td style='text-align:left'>SPECIAL</td><td>latin</td></tr>
-<tr><td>]</td><td>]<br/></td><td>]</td><td style='text-align:left'>STRUCTURAL</td><td>latin</td></tr>
-<tr><td>^</td><td>^<br/></td><td>^</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>_</td><td>_<br/></td><td>_</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>`</td><td>`<br/></td><td>`</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>{</td><td>{<br/></td><td>{</td><td style='text-align:left'>STRUCTURAL</td><td>latin</td></tr>
-<tr><td>|</td><td>|<br/></td><td>|</td><td style='text-align:left'>PUNCTUATION</td><td>latin</td></tr>
-<tr><td>}</td><td>}<br/></td><td>}</td><td style='text-align:left'>STRUCTURAL</td><td>latin</td></tr>
-<tr><td>~</td><td>~<br/></td><td>~</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td> </td><td>\nbsp\<br/></td><td> </td><td style='text-align:left'>SPACE</td><td>latin</td></tr>
-<tr><td>¦</td><td>\brvbar\<br/></td><td>|</td><td style='text-align:left'>PUNCTUATION</td><td>latin</td></tr>
-<tr><td>«</td><td>&lt;&lt;<br/></td><td>«</td><td style='text-align:left'>QUOTE</td><td>latin</td></tr>
-<tr><td>µ</td><td>micro<br/></td><td>μ</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>·</td><td>\middot\<br/></td><td>·</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>»</td><td>&gt;&gt;<br/></td><td>»</td><td style='text-align:left'>QUOTE</td><td>latin</td></tr>
-<tr><td>À</td><td>A\`<br/></td><td>À</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Á</td><td>A\'<br/></td><td>Á</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Â</td><td>A\^<br/></td><td>Â</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ã</td><td>A\~<br/></td><td>Ã</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ä</td><td>A\..<br/></td><td>Ä</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Å</td><td>A\o<br/></td><td>Å</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Æ</td><td>A\E<br/></td><td>AE</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ç</td><td>C/,<br/></td><td>Ç</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>È</td><td>E\`<br/></td><td>È</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>É</td><td>E\'<br/></td><td>É</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ê</td><td>E\^<br/></td><td>Ê</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ë</td><td>E\..<br/></td><td>Ë</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ì</td><td>I\`<br/></td><td>Ì</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Í</td><td>I\'<br/></td><td>Í</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Î</td><td>I\^<br/></td><td>Î</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ï</td><td>I\..<br/></td><td>Ï</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ð</td><td>ETH<br/></td><td>Ð</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ñ</td><td>N\~<br/></td><td>Ñ</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ò</td><td>O\`<br/></td><td>Ò</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ó</td><td>O\'<br/></td><td>Ó</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ô</td><td>O\^<br/></td><td>Ô</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Õ</td><td>O\~<br/></td><td>Õ</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ö</td><td>O\..<br/></td><td>Ö</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>×</td><td>times<br/></td><td>×</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>Ø</td><td>O/<br/></td><td>Ø</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ù</td><td>U\`<br/></td><td>Ù</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ú</td><td>U\'<br/></td><td>Ú</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Û</td><td>U\^<br/></td><td>Û</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ü</td><td>U\..<br/></td><td>Ü</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ý</td><td>Y\'<br/></td><td>Ý</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Þ</td><td>THORN<br/></td><td>Þ</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ß</td><td>s\s<br/></td><td>ß</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>à</td><td>a\`<br/></td><td>à</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>á</td><td>a\'<br/></td><td>á</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>â</td><td>a\^<br/></td><td>â</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ã</td><td>a\~<br/></td><td>ã</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ä</td><td>a\..<br/></td><td>ä</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>å</td><td>a\o<br/></td><td>å</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>æ</td><td>a\e<br/></td><td>ae</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ç</td><td>c/,<br/></td><td>ç</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>è</td><td>e\`<br/></td><td>è</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>é</td><td>e\'<br/></td><td>é</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ê</td><td>e\^<br/></td><td>ê</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ë</td><td>e\..<br/></td><td>ë</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ì</td><td>i\`<br/></td><td>ì</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>í</td><td>i\'<br/></td><td>í</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>î</td><td>i\^<br/></td><td>î</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ï</td><td>i\..<br/></td><td>ï</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ð</td><td>eth<br/></td><td>ð</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ñ</td><td>n\~<br/></td><td>ñ</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ò</td><td>o\`<br/></td><td>ò</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ó</td><td>o\'<br/></td><td>ó</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ô</td><td>o\^<br/></td><td>ô</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>õ</td><td>o\~<br/></td><td>õ</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ö</td><td>o\..<br/></td><td>ö</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>÷</td><td>divide<br/></td><td>÷</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>latin</td></tr>
-<tr><td>ø</td><td>o/<br/></td><td>ø</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ù</td><td>u\`<br/></td><td>ù</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ú</td><td>u\'<br/></td><td>ú</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>û</td><td>u\^<br/></td><td>û</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ü</td><td>u\..<br/></td><td>ü</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ý</td><td>y\'<br/></td><td>ý</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>þ</td><td>thorn<br/></td><td>þ</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>ÿ</td><td>y\..<br/></td><td>ÿ</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Œ</td><td>O\E<br/></td><td>OE</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>œ</td><td>o\e<br/></td><td>oe</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Š</td><td>S\v<br/></td><td>Š</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>š</td><td>s\v<br/></td><td>š</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ÿ</td><td>Y\..<br/></td><td>Ÿ</td><td style='text-align:left'>LETTER</td><td>latin</td></tr>
-<tr><td>Ά</td><td>'ALPHA<br/></td><td>Ά</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>·</td><td>\anotelia\<br/></td><td>·</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>greek</td></tr>
-<tr><td>Έ</td><td>'EPSILON<br/></td><td>Έ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ή</td><td>'ETA<br/></td><td>Ή</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ί</td><td>'IOTA<br/></td><td>Ί</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ό</td><td>'OMICRON<br/></td><td>Ό</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ύ</td><td>'UPSILON<br/></td><td>Ύ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ώ</td><td>'OMEGA<br/></td><td>Ώ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Α</td><td>ALPHA<br/></td><td>A</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Β</td><td>BETA<br/></td><td>B</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Γ</td><td>GAMMA<br/></td><td>Γ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Δ</td><td>DELTA<br/></td><td>Δ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ε</td><td>EPSILON<br/></td><td>E</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ζ</td><td>ZETA<br/></td><td>Z</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Η</td><td>ETA<br/></td><td>H</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Θ</td><td>THETA<br/></td><td>Θ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ι</td><td>IOTA<br/></td><td>I</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Κ</td><td>KAPPA<br/></td><td>K</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Λ</td><td>LAMBDA<br/></td><td>Λ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Μ</td><td>MU<br/></td><td>M</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ν</td><td>NU<br/></td><td>N</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ξ</td><td>XI<br/></td><td>Ξ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ο</td><td>OMICRON<br/></td><td>O</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Π</td><td>PI<br/></td><td>Π</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ρ</td><td>RHO<br/></td><td>P</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Σ</td><td>SIGMA<br/></td><td>Σ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Τ</td><td>TAU<br/></td><td>T</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Υ</td><td>UPSILON<br/></td><td>Y</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Φ</td><td>PHI<br/></td><td>Φ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Χ</td><td>CHI<br/></td><td>X</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ψ</td><td>PSI<br/></td><td>Ψ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ω</td><td>OMEGA<br/></td><td>Ω</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ϊ</td><td>IOTA\..<br/></td><td>Ï</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ϋ</td><td>UPSILON\..<br/></td><td>Ÿ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ά</td><td>'alpha<br/></td><td>ά</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>έ</td><td>'epsilon<br/></td><td>έ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ή</td><td>'eta<br/></td><td>ή</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ί</td><td>'iota<br/></td><td>ί</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>α</td><td>alpha<br/></td><td>α</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>β</td><td>beta<br/></td><td>β</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>γ</td><td>gamma<br/></td><td>γ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>δ</td><td>delta<br/></td><td>δ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ε</td><td>epsilon<br/></td><td>ε</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ζ</td><td>zeta<br/></td><td>ζ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>η</td><td>eta<br/></td><td>η</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>θ</td><td>theta<br/></td><td>θ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ι</td><td>iota<br/></td><td>ι</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>κ</td><td>kappa<br/></td><td>κ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>λ</td><td>lambda<br/></td><td>λ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>μ</td><td>mu<br/></td><td>μ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ν</td><td>nu<br/></td><td>ν</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ξ</td><td>xi<br/></td><td>ξ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ο</td><td>omicron<br/></td><td>ο</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>π</td><td>pi<br/></td><td>π</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ρ</td><td>rho<br/></td><td>ρ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ς</td><td>finalsigma<br/></td><td>ς</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>σ</td><td>sigma<br/></td><td>σ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>τ</td><td>tau<br/></td><td>τ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>υ</td><td>upsilon<br/></td><td>υ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>φ</td><td>phi<br/></td><td>φ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>χ</td><td>chi<br/></td><td>χ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ψ</td><td>psi<br/></td><td>ψ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ω</td><td>omega<br/></td><td>ω</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ϊ</td><td>iota\..<br/></td><td>ϊ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ϋ</td><td>upsilon\..<br/></td><td>ϋ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ό</td><td>'omicron<br/></td><td>ό</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ύ</td><td>'upsilon<br/></td><td>ύ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ώ</td><td>'omega<br/></td><td>ώ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>Ϗ</td><td>KAI<br/></td><td>Ϗ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ϑ</td><td>thetasym<br/></td><td>ϑ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ϒ</td><td>upsilonhook<br/>upsilonsym<br/></td><td>ϒ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ϕ</td><td>phisym<br/></td><td>ϕ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ϖ</td><td>pisym<br/></td><td>ϖ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ϗ</td><td>kai<br/></td><td>ϗ</td><td style='text-align:left'>LETTER</td><td>greek</td></tr>
-<tr><td>ְ</td><td>\sheva\<br/></td><td>ְ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ֱ</td><td>\hatafsegol\<br/></td><td>ֱ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ֲ</td><td>\hatafpatah\<br/></td><td>ֲ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ֳ</td><td>\hatafqamats\<br/></td><td>ֳ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ִ</td><td>\hiriq\<br/></td><td>ִ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ֵ</td><td>\tsere\<br/></td><td>ֵ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ֶ</td><td>\segol\<br/></td><td>ֶ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ַ</td><td>\patah\<br/></td><td>ַ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ָ</td><td>\qamats\<br/></td><td>ָ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ֹ</td><td>\holam\<br/></td><td>ֹ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ֺ</td><td>\holamhaservav\<br/></td><td>ֺ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ֻ</td><td>\qubuts\<br/></td><td>ֻ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ּ</td><td>\dagesh\<br/>\mapiq\<br/></td><td>ּ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ֽ</td><td>\meteg\<br/></td><td>ֽ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>־</td><td>\maqaf\<br/>\-\<br/></td><td>-</td><td style='text-align:left'>SPECIAL</td><td>hebrew</td></tr>
-<tr><td>ֿ</td><td>\rafe\<br/></td><td>ֿ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>׀</td><td>\paseq\<br/></td><td>|</td><td style='text-align:left'>PUNCTUATION</td><td>hebrew</td></tr>
-<tr><td>ׁ</td><td>\shindot\<br/></td><td>ׁ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ׂ</td><td>\sindot\<br/></td><td>ׂ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>׃</td><td>\sofpasuq\<br/></td><td>:</td><td style='text-align:left'>PUNCTUATION</td><td>hebrew</td></tr>
-<tr><td>ׄ</td><td>\upperdot\<br/></td><td>ׄ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>ׅ</td><td>\lowerdot\<br/></td><td>ׅ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>׆</td><td>\nunhafukha\<br/></td><td>׆</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>hebrew</td></tr>
-<tr><td>ׇ</td><td>\qamatsqatan\<br/></td><td>ׇ</td><td style='text-align:left'>POINTING</td><td>hebrew</td></tr>
-<tr><td>א</td><td>alef<br/></td><td>א</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ב</td><td>bet<br/></td><td>ב</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ג</td><td>gimel<br/></td><td>ג</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ד</td><td>dalet<br/></td><td>ד</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ה</td><td>he<br/></td><td>ה</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ו</td><td>vav<br/></td><td>ו</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ז</td><td>zayin<br/></td><td>ז</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ח</td><td>het<br/></td><td>ח</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ט</td><td>tet<br/></td><td>ט</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>י</td><td>yod<br/></td><td>י</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ך</td><td>finalkaf<br/></td><td>ך</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>כ</td><td>kaf<br/></td><td>כ</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ל</td><td>lamed<br/></td><td>ל</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ם</td><td>finalmem<br/></td><td>ם</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>מ</td><td>mem<br/></td><td>מ</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ן</td><td>finalnun<br/></td><td>ן</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>נ</td><td>nun<br/></td><td>נ</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ס</td><td>samekh<br/></td><td>ס</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ע</td><td>ayin<br/></td><td>ע</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ף</td><td>finalpe<br/></td><td>ף</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>פ</td><td>pe<br/></td><td>פ</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ץ</td><td>finaltsadi<br/></td><td>ץ</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>צ</td><td>tsadi<br/></td><td>צ</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ק</td><td>qof<br/></td><td>ק</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ר</td><td>resh<br/></td><td>ר</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ש</td><td>shin<br/></td><td>ש</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ת</td><td>tav<br/></td><td>ת</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>װ</td><td>vav\vav<br/></td><td>וו</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ױ</td><td>vav\yod<br/></td><td>וי</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>ײ</td><td>yod\yod<br/></td><td>יי</td><td style='text-align:left'>LETTER</td><td>hebrew</td></tr>
-<tr><td>׳</td><td>\geresh\<br/></td><td>'</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>hebrew</td></tr>
-<tr><td>״</td><td>\gershayim\<br/></td><td>''</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>hebrew</td></tr>
-<tr><td> </td><td>\enquad\<br/></td><td> </td><td style='text-align:left'>SPACE</td><td></td></tr>
-<tr><td> </td><td>\emquad\<br/></td><td> </td><td style='text-align:left'>SPACE</td><td></td></tr>
-<tr><td> </td><td>\enspace\<br/>\ensp\<br/></td><td> </td><td style='text-align:left'>SPACE</td><td></td></tr>
-<tr><td> </td><td>\emspace\<br/>\emsp\<br/></td><td> </td><td style='text-align:left'>SPACE</td><td></td></tr>
-<tr><td> </td><td>\thinspace\<br/>\thinsp\<br/></td><td> </td><td style='text-align:left'>SPACE</td><td></td></tr>
-<tr><td>​</td><td>\zwspace\<br/>\zwsp\<br/></td><td>​</td><td style='text-align:left'>FORMAT CODE</td><td></td></tr>
-<tr><td>‌</td><td>\zwnj\<br/></td><td> </td><td style='text-align:left'>SPACE</td><td></td></tr>
-<tr><td>‍</td><td>\zwj\<br/></td><td>-</td><td style='text-align:left'>SPECIAL</td><td></td></tr>
-<tr><td>‎</td><td>\leftright\<br/>\lrm\<br/></td><td>‎</td><td style='text-align:left'>FORMAT CODE</td><td></td></tr>
-<tr><td>‏</td><td>\rightleft\<br/>\rlm\<br/></td><td>‏</td><td style='text-align:left'>FORMAT CODE</td><td></td></tr>
-<tr><td>‐</td><td>\hyphen\<br/></td><td>-</td><td style='text-align:left'>SPECIAL</td><td></td></tr>
-<tr><td>‑</td><td>\nbhyphen\<br/></td><td>-</td><td style='text-align:left'>SPECIAL</td><td></td></tr>
-<tr><td>‒</td><td>\figdash\<br/></td><td>--</td><td style='text-align:left'>SPECIAL</td><td></td></tr>
-<tr><td>–</td><td>\ndash\<br/>\endash\<br/></td><td>--</td><td style='text-align:left'>SPECIAL</td><td></td></tr>
-<tr><td>—</td><td>\mdash\<br/>\emdash\<br/></td><td>---</td><td style='text-align:left'>SPECIAL</td><td></td></tr>
-<tr><td>―</td><td>\hbar\<br/></td><td>---</td><td style='text-align:left'>SPECIAL</td><td></td></tr>
-<tr><td>‘</td><td>\lsquo\<br/>[`]<br/></td><td>‘</td><td style='text-align:left'>QUOTE</td><td></td></tr>
-<tr><td>’</td><td>\rsquo\<br/>[']<br/></td><td>’</td><td style='text-align:left'>QUOTE</td><td></td></tr>
-<tr><td>‚</td><td>\sbquo\<br/>[,]<br/></td><td>‚</td><td style='text-align:left'>QUOTE</td><td></td></tr>
-<tr><td>“</td><td>\ldquo\<br/>[``]<br/></td><td>“</td><td style='text-align:left'>QUOTE</td><td></td></tr>
-<tr><td>”</td><td>\rdquo\<br/>['']<br/></td><td>”</td><td style='text-align:left'>QUOTE</td><td></td></tr>
-<tr><td>„</td><td>\bdquo\<br/>[,,]<br/></td><td>„</td><td style='text-align:left'>QUOTE</td><td></td></tr>
-<tr><td>•</td><td>\bullet\<br/>\bull\<br/></td><td>·</td><td style='text-align:left'>CHARACTER SYMBOL</td><td></td></tr>
-<tr><td>…</td><td>\ellipsis\<br/>\hellip\<br/></td><td>...</td><td style='text-align:left'>PUNCTUATION</td><td></td></tr>
-<tr><td> </td><td>\nnbsp\<br/></td><td> </td><td style='text-align:left'>SPACE</td><td></td></tr>
-<tr><td>゠</td><td>\doublehyphen\<br/></td><td>=</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>katakana</td></tr>
-<tr><td>ァ</td><td>a<br/></td><td>ァ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ア</td><td>A<br/></td><td>ア</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ィ</td><td>i<br/></td><td>ィ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>イ</td><td>I<br/></td><td>イ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ゥ</td><td>u<br/></td><td>ゥ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ウ</td><td>U<br/></td><td>ウ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ェ</td><td>E<br/></td><td>ェ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>エ</td><td>e<br/></td><td>エ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ォ</td><td>o<br/></td><td>ォ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>オ</td><td>O<br/></td><td>オ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>カ</td><td>Ka<br/></td><td>カ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ガ</td><td>Ga<br/></td><td>ガ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>キ</td><td>Ki<br/></td><td>キ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ギ</td><td>Gi<br/></td><td>ギ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ク</td><td>Ku<br/></td><td>ク</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>グ</td><td>Gu<br/></td><td>グ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ケ</td><td>Ke<br/></td><td>ケ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ゲ</td><td>Ge<br/></td><td>ゲ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>コ</td><td>Ko<br/></td><td>コ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ゴ</td><td>Go<br/></td><td>ゴ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>サ</td><td>Sa<br/></td><td>サ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ザ</td><td>Za<br/></td><td>ザ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>シ</td><td>Si<br/></td><td>シ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ジ</td><td>Zi<br/></td><td>ジ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ス</td><td>Su<br/></td><td>ス</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ズ</td><td>Zu<br/></td><td>ズ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>セ</td><td>Se<br/></td><td>セ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ゼ</td><td>Ze<br/></td><td>ゼ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ソ</td><td>So<br/></td><td>ソ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ゾ</td><td>Zo<br/></td><td>ゾ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>タ</td><td>Ta<br/></td><td>タ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ダ</td><td>Da<br/></td><td>ダ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>チ</td><td>Ti<br/></td><td>チ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヂ</td><td>Di<br/></td><td>ヂ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ッ</td><td>tu<br/></td><td>ッ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ツ</td><td>Tu<br/></td><td>ツ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヅ</td><td>Du<br/></td><td>ヅ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>テ</td><td>Te<br/></td><td>テ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>デ</td><td>De<br/></td><td>デ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ト</td><td>To<br/></td><td>ト</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ド</td><td>Do<br/></td><td>ド</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ナ</td><td>Na<br/></td><td>ナ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ニ</td><td>Ni<br/></td><td>ニ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヌ</td><td>Nu<br/></td><td>ヌ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ネ</td><td>Ne<br/></td><td>ネ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ノ</td><td>No<br/></td><td>ノ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ハ</td><td>Ha<br/></td><td>ハ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>バ</td><td>Ba<br/></td><td>バ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>パ</td><td>Pa<br/></td><td>パ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヒ</td><td>Hi<br/></td><td>ヒ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ビ</td><td>Bi<br/></td><td>ビ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ピ</td><td>Pi<br/></td><td>ピ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>フ</td><td>Hu<br/></td><td>フ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ブ</td><td>Bu<br/></td><td>ブ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>プ</td><td>Pu<br/></td><td>プ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヘ</td><td>He<br/></td><td>ヘ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ベ</td><td>Be<br/></td><td>ベ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ペ</td><td>Pe<br/></td><td>ペ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ホ</td><td>Ho<br/></td><td>ホ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ボ</td><td>Bo<br/></td><td>ボ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ポ</td><td>Po<br/></td><td>ポ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>マ</td><td>Ma<br/></td><td>マ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ミ</td><td>Mi<br/></td><td>ミ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ム</td><td>Mu<br/></td><td>ム</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>メ</td><td>Me<br/></td><td>メ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>モ</td><td>Mo<br/></td><td>モ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ャ</td><td>ya<br/></td><td>ャ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヤ</td><td>Ya<br/></td><td>ヤ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ュ</td><td>yu<br/></td><td>ュ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ユ</td><td>Yu<br/></td><td>ユ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ョ</td><td>yo<br/></td><td>ョ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヨ</td><td>Yo<br/></td><td>ヨ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ラ</td><td>Ra<br/></td><td>ラ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>リ</td><td>Ri<br/></td><td>リ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ル</td><td>Ru<br/></td><td>ル</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>レ</td><td>Re<br/></td><td>レ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ロ</td><td>Ro<br/></td><td>ロ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヮ</td><td>wa<br/></td><td>ヮ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ワ</td><td>Wa<br/></td><td>ワ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヰ</td><td>Wi<br/></td><td>ヰ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヱ</td><td>We<br/></td><td>ヱ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヲ</td><td>Wo<br/></td><td>ヲ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ン</td><td>N<br/></td><td>ン</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヴ</td><td>Vu<br/></td><td>ヴ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヵ</td><td>ka<br/></td><td>ヵ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヶ</td><td>ke<br/></td><td>ヶ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヷ</td><td>Va<br/></td><td>ヷ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヸ</td><td>Vi<br/></td><td>ヸ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヹ</td><td>Ve<br/></td><td>ヹ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>ヺ</td><td>Vo<br/></td><td>ヺ</td><td style='text-align:left'>LETTER</td><td>katakana</td></tr>
-<tr><td>・</td><td>\katmiddot\<br/></td><td>·</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>katakana</td></tr>
-<tr><td>ー</td><td>\prolongedsound\<br/></td><td>ー</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>katakana</td></tr>
-<tr><td>ヽ</td><td>\iteration\<br/></td><td>ヽ</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>katakana</td></tr>
-<tr><td>ヾ</td><td>\voicediteration\<br/></td><td>ヾ</td><td style='text-align:left'>CHARACTER SYMBOL</td><td>katakana</td></tr>
-</table>
+<h3>Rules for Apostrophes</h3>
+A sequence of ASCII apostrophes (', '', ''') at the end of a word and outside a quote literal is normally interpreted as a sequence of prime marks (′, ″, ‴).
+Inside of a quoted literal, or at the beginning or middle of a word, the ASCII apostrophe is normally rendered as a typographic apostrophe (’).
+Apostrophes generally cannot delimit the start or end of any quote. However, since the typographic apostrophe is the same character as the right-single quote, it must be present to close certain quotes.
+Typographic apostrophes within a single-quoted quote literal may have to be escaped to prevent early closing of the quote.
 
 </body>
 </html>

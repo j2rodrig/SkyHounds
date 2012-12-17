@@ -63,6 +63,7 @@
     <ClCompile Include="Symbols.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SpecialString.h" />
     <ClInclude Include="Symbols.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
